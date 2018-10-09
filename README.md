@@ -1,0 +1,1 @@
+# scala_from_archetype
