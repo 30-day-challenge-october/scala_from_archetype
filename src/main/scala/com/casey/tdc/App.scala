@@ -15,8 +15,20 @@ object App {
         println("Hello World!")
         println("concat arguments = " + foo(args))
 
-        val source = args(0)
-        val output = args(1)
+        val source = try {
+            args(0)
+        } catch {
+            case e: Exception => {
+                throw new Exception(e.getMessage)
+            }
+        }
+        val output = try {
+            args(1)
+        } catch {
+            case e: Exception => {
+                throw new Exception(e.getMessage)
+            }
+        }
 
         implicit val hadoopConfiguration = new Configuration()
         implicit val hadoopFileSystem = FileSystem.get(hadoopConfiguration)
